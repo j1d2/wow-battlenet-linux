@@ -17,6 +17,7 @@ Do not include any of the following, in the guide, an issue, a pull request, or 
 - Email addresses, Battle.net or WoW account names, character names
 - IP addresses, hostnames, serial numbers, or home-network details
 - A full Battle.net or Wine log. Quote the error line and the version.
+- Blizzard's art, logos, screenshots, client files, or paragraphs copied from their site or games. Use the product name. Do not reproduce their material.
 
 GitHub publishes issues and pull requests. A private detail pasted once is hard to take back.
 

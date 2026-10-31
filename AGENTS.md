@@ -18,3 +18,4 @@ This repository is a public install guide. It is not a dump of one person's mach
 - Invent a fix for game audio. The README only says the game uses the desktop default output.
 - Force-push or commit straight to `main`. Protection rejects direct pushes. Open a pull request.
 - Add a second license. This repo is Apache License 2.0.
+- Add Blizzard art, logos, screenshots, client files, or text copied from their site or games. Product names stay in the guide so people can find the installer. The trademark notice in README and NOTICE stays.

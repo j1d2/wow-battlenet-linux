@@ -4,7 +4,7 @@ Install the Battle.net launcher with [Lutris](https://lutris.net), then install 
 
 Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The installer below is the same one other distros use. The package commands are Arch.
 
-Blizzard does not support Linux for these games. This is a player guide.
+Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
 
 ## What you need
 
@@ -120,6 +120,12 @@ Issues use the templates in `.github/ISSUE_TEMPLATE`. Do not paste account names
 
 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) covers issues and pull requests. [SECURITY.md](SECURITY.md) is for a personal detail that should not be public.
 
+## Trademarks and copyright
+
+World of Warcraft, WoW, Warcraft, Battle.net, and Blizzard are trademarks or registered trademarks of Blizzard Entertainment, Inc. in the U.S. and/or other countries. Other names are the property of their respective owners.
+
+This repository is original install notes. It does not include Blizzard's art, logos, screenshots, client files, or copied text from their games or website. Naming a product here is only so a reader can find that product.
+
 ## License
 
-[Apache License 2.0](LICENSE). A pull request is a contribution under that license.
+[Apache License 2.0](LICENSE). A pull request is a contribution under that license. The Apache license covers this guide. It does not license Blizzard's games or trademarks.
