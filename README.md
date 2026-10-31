@@ -1,8 +1,49 @@
 # Battle.net and World of Warcraft on Linux
 
+<p align="center">
+
+[![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://github.com/j1d2/wow-battlenet-linux)
+[![Lutris](https://img.shields.io/badge/Lutris-FF9900?style=for-the-badge&logo=lutris&logoColor=white)](https://lutris.net)
+[![Wine](https://img.shields.io/badge/Wine-800000?style=for-the-badge&logo=wine&logoColor=white)](https://www.winehq.org)
+[![Proton](https://img.shields.io/badge/Proton-F50057?style=for-the-badge&logo=proton&logoColor=white)](https://github.com/ValveSoftware/proton)
+[![NVIDIA](https://img.shields.io/badge/NVIDIA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)](docs/arch.md)
+[![Apache 2.0](https://img.shields.io/badge/Apache_2.0-blue?style=for-the-badge)](LICENSE)
+
+</p>
+
+<p align="center">
+
+[![Arch Linux](https://img.shields.io/badge/Arch_Linux-tested-1793D1?style=flat-square&logo=archlinux&logoColor=white)](docs/arch.md)
+[![CachyOS](https://img.shields.io/badge/CachyOS-not_tested-555555?style=flat-square&logo=cachyos&logoColor=white)](docs/cachyos.md)
+[![EndeavourOS](https://img.shields.io/badge/EndeavourOS-not_tested-555555?style=flat-square&logo=endeavouros&logoColor=white)](docs/endeavouros.md)
+[![Manjaro](https://img.shields.io/badge/Manjaro-not_tested-555555?style=flat-square&logo=manjaro&logoColor=white)](docs/manjaro.md)
+[![Debian](https://img.shields.io/badge/Debian-not_tested-555555?style=flat-square&logo=debian&logoColor=white)](docs/debian.md)
+[![Ubuntu](https://img.shields.io/badge/Ubuntu-not_tested-555555?style=flat-square&logo=ubuntu&logoColor=white)](docs/ubuntu.md)
+[![Linux Mint](https://img.shields.io/badge/Linux_Mint-not_tested-555555?style=flat-square&logo=linuxmint&logoColor=white)](docs/linux-mint.md)
+[![Pop!_OS](https://img.shields.io/badge/Pop!__OS-not_tested-555555?style=flat-square&logo=popos&logoColor=white)](docs/pop-os.md)
+[![Fedora](https://img.shields.io/badge/Fedora-not_tested-555555?style=flat-square&logo=fedora&logoColor=white)](docs/fedora.md)
+[![SteamOS](https://img.shields.io/badge/SteamOS-not_covered-555555?style=flat-square)](docs/steamos.md)
+[![Bazzite](https://img.shields.io/badge/Bazzite-not_covered-555555?style=flat-square)](docs/bazzite.md)
+
+</p>
+
 Install the Battle.net launcher with [Lutris](https://lutris.net), then install a World of Warcraft version from inside it.
 
-Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The package commands below are Arch. Other distros are listed after that and were not tested.
+Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The copy-paste block below is that test. Every other distro page is marked not tested.
+
+## TL;DR
+
+Arch Linux. Proprietary NVIDIA driver. Tested October 2026.
+
+```bash
+sudo pacman -S lutris wine umu-launcher python-protobuf
+sudo pacman -S nvidia-utils lib32-nvidia-utils vulkan-icd-loader lib32-vulkan-icd-loader
+lutris lutris:install/battlenet-standard
+```
+
+Then in Lutris: **Preferences**, **Updates**, install **DXVK**. Close the first Battle.net login window without signing in, start Battle.net from Lutris again, and sign in on that second launch.
+
+The same `pacman` lines are repeated on the [Arch](docs/arch.md), [CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) pages. Only Arch was tested. There is no `apt` or `dnf` command here until someone has run one.
 
 Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
 
@@ -26,15 +67,21 @@ Use the distro Lutris package. The Flatpak build is a different sandbox, and the
 
 ## Other distros
 
-Only Arch Linux was tested, in October 2026. The Lutris steps after the packages are installed (DXVK, Battle.net, and the WoW versions) should be the same. Those steps were not run on the distros below.
+Only Arch Linux was tested, in October 2026. The Lutris steps after the packages are installed should be the same. Those steps were not run anywhere but Arch.
 
-**Arch-based.** CachyOS, EndeavourOS, and Manjaro use the same `pacman` commands as Arch. Not tested. The 32-bit NVIDIA packages need the multilib repository, same as on Arch.
-
-**apt.** Debian, Ubuntu, Linux Mint, and Pop!_OS install the same kind of packages with `apt` instead of `pacman`. Not tested. Package names differ, and a package in this guide may be missing from that distro's own repositories.
-
-**dnf.** Fedora installs them with `dnf` instead of `pacman`. Not tested. Package names differ there too.
-
-**Immutable images.** SteamOS and Bazzite are not a normal `pacman`, `apt`, or `dnf` install. This guide does not cover them.
+| Page | Package manager | Status |
+| --- | --- | --- |
+| [Arch Linux](docs/arch.md) | `pacman` | Tested, October 2026 |
+| [CachyOS](docs/cachyos.md) | `pacman` | Not tested. Same commands as Arch. |
+| [EndeavourOS](docs/endeavouros.md) | `pacman` | Not tested. Same commands as Arch. |
+| [Manjaro](docs/manjaro.md) | `pacman` | Not tested. Same commands as Arch. |
+| [Debian](docs/debian.md) | `apt` | Not tested. No install command listed. |
+| [Ubuntu](docs/ubuntu.md) | `apt` | Not tested. No install command listed. |
+| [Linux Mint](docs/linux-mint.md) | `apt` | Not tested. No install command listed. |
+| [Pop!_OS](docs/pop-os.md) | `apt` | Not tested. No install command listed. |
+| [Fedora](docs/fedora.md) | `dnf` | Not tested. No install command listed. |
+| [SteamOS](docs/steamos.md) | immutable | Not covered. |
+| [Bazzite](docs/bazzite.md) | immutable | Not covered. |
 
 ## Install DXVK first
 
