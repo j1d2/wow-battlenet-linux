@@ -2,7 +2,7 @@
 
 Install the Battle.net launcher with [Lutris](https://lutris.net), then install a World of Warcraft version from inside it.
 
-Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The installer below is the same one other distros use. The package commands are Arch.
+Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The package commands below are Arch. Other distros are listed after that and were not tested.
 
 Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
 
@@ -23,6 +23,18 @@ The Battle.net source is unavailable because Google protobuf could not be loaded
 On NVIDIA, the 32-bit driver userspace has to match the 64-bit driver (`lib32-nvidia-utils` with `nvidia-utils` on Arch). Also install `vulkan-icd-loader` and `lib32-vulkan-icd-loader`.
 
 Use the distro Lutris package. The Flatpak build is a different sandbox, and these steps do not cover it.
+
+## Other distros
+
+Only Arch Linux was tested, in October 2026. The Lutris steps after the packages are installed (DXVK, Battle.net, and the WoW versions) should be the same. Those steps were not run on the distros below.
+
+**Arch-based.** CachyOS, EndeavourOS, and Manjaro use the same `pacman` commands as Arch. Not tested. The 32-bit NVIDIA packages need the multilib repository, same as on Arch.
+
+**apt.** Debian, Ubuntu, Linux Mint, and Pop!_OS install the same kind of packages with `apt` instead of `pacman`. Not tested. Package names differ, and a package in this guide may be missing from that distro's own repositories.
+
+**dnf.** Fedora installs them with `dnf` instead of `pacman`. Not tested. Package names differ there too.
+
+**Immutable images.** SteamOS and Bazzite are not a normal `pacman`, `apt`, or `dnf` install. This guide does not cover them.
 
 ## Install DXVK first
 
