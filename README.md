@@ -31,6 +31,8 @@ Install the Battle.net launcher with [Lutris](https://lutris.net), then install 
 
 Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The copy-paste block below is that test. Every other distro page is marked not tested.
 
+Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
+
 ## TL;DR
 
 Arch Linux. Proprietary NVIDIA driver. Tested October 2026.
@@ -43,9 +45,92 @@ lutris lutris:install/battlenet-standard
 
 Then in Lutris: **Preferences**, **Updates**, install **DXVK**. Close the first Battle.net login window without signing in, start Battle.net from Lutris again, and sign in on that second launch.
 
-The same `pacman` lines are repeated on the [Arch](docs/arch.md), [CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) pages. Only Arch was tested. There is no `apt` or `dnf` command here until someone has run one.
+The same `pacman` lines are on the [Arch](docs/arch.md), [CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) pages. Only this block was run. Looked-up `apt` and `dnf` commands are in [Distros](#distros).
 
-Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
+## Distros
+
+Only Arch Linux was tested, in October 2026. The `apt` and `dnf` commands in this section were looked up in each distro's package index on 31 October 2026. They were not run.
+
+| Page | Package manager | Status |
+| --- | --- | --- |
+| [Arch Linux](docs/arch.md) | `pacman` | Tested, October 2026 |
+| [CachyOS](docs/cachyos.md) | `pacman` | Not tested. Same commands as Arch. |
+| [EndeavourOS](docs/endeavouros.md) | `pacman` | Not tested. Same commands as Arch. |
+| [Manjaro](docs/manjaro.md) | `pacman` | Not tested. Same commands as Arch. |
+| [Debian](docs/debian.md) | `apt` | Not tested. Commands looked up, not run. |
+| [Ubuntu](docs/ubuntu.md) | `apt` | Not tested. Commands looked up, not run. |
+| [Linux Mint](docs/linux-mint.md) | `apt` | Not tested. Commands looked up, not run. |
+| [Pop!_OS](docs/pop-os.md) | `apt` | Not tested. Commands looked up, not run. |
+| [Fedora](docs/fedora.md) | `dnf` | Not tested. Commands looked up, not run. |
+| [SteamOS](docs/steamos.md) | immutable | Not covered. |
+| [Bazzite](docs/bazzite.md) | immutable | Not covered. |
+
+### Arch-based
+
+[CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) use the [TL;DR](#tldr) `pacman` lines. Those three pages were not tested.
+
+### Debian
+
+`lutris` 0.5.19-2 is in the **contrib** component on Debian 13. The tested install used Lutris 0.5.22. `wine` is in main. The protobuf package is `python3-protobuf`. `umu-launcher` is not in the Debian package tracker, so this command does not include it.
+
+Enable contrib, then:
+
+```bash
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install lutris wine python3-protobuf
+lutris lutris:install/battlenet-standard
+```
+
+Proprietary NVIDIA is in **non-free**. The looked-up 32-bit library package on Debian 13 is `nvidia-driver-libs:i386` (550.163.01). Not run:
+
+```bash
+sudo apt install nvidia-driver-libs:i386
+```
+
+Details and the DXVK step: [docs/debian.md](docs/debian.md).
+
+### Ubuntu, Linux Mint, and Pop!_OS
+
+`lutris` is in **multiverse**: 0.5.14 on Ubuntu 24.04, 0.5.22 on Ubuntu 26.04. `wine` is in **universe**. The protobuf package is `python3-protobuf`. A search of every Ubuntu suite for `umu-launcher` returned no package, so this command does not include it.
+
+Linux Mint and Pop!_OS are Ubuntu-based. These names were looked up on Ubuntu's package pages.
+
+Enable multiverse and universe, then:
+
+```bash
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install lutris wine python3-protobuf
+lutris lutris:install/battlenet-standard
+```
+
+The Ubuntu 32-bit NVIDIA library is `libnvidia-gl-<branch>:i386` in **restricted**. Ubuntu 26.04 publishes several branches (580, 590, 595, 610 were on the package pages). Match the branch already installed. No branch is filled in here. Not run.
+
+Pop!_OS documents `sudo apt install system76-driver-nvidia` for its proprietary driver. That page did not name a 32-bit package.
+
+Pages: [Ubuntu](docs/ubuntu.md), [Linux Mint](docs/linux-mint.md), [Pop!_OS](docs/pop-os.md).
+
+### Fedora
+
+Fedora 43, 44, and 45 list `lutris` 0.5.22. `wine` is in the Fedora repos. `python3-protobuf` is a dependency of the Fedora 45 lutris package. Fedora's package index has no `umu-launcher` page, so this command does not include it.
+
+```bash
+sudo dnf install lutris wine python3-protobuf
+lutris lutris:install/battlenet-standard
+```
+
+Proprietary NVIDIA is not in Fedora's own repos. [RPM Fusion's NVIDIA howto](https://rpmfusion.org/Howto/NVIDIA) says current GeForce cards use `akmod-nvidia` from the nonfree repository, and that current Fedora pulls `xorg-x11-drv-nvidia-libs.i686` with it. Enable that third-party repository first. The repository-enable command is on RPM Fusion's configuration page and is not copied here. Not run:
+
+```bash
+sudo dnf install akmod-nvidia
+```
+
+Details: [docs/fedora.md](docs/fedora.md).
+
+### Not covered
+
+[SteamOS](docs/steamos.md) and [Bazzite](docs/bazzite.md) are immutable images. No install command is listed.
 
 ## What you need
 
@@ -64,24 +149,6 @@ The Battle.net source is unavailable because Google protobuf could not be loaded
 On NVIDIA, the 32-bit driver userspace has to match the 64-bit driver (`lib32-nvidia-utils` with `nvidia-utils` on Arch). Also install `vulkan-icd-loader` and `lib32-vulkan-icd-loader`.
 
 Use the distro Lutris package. The Flatpak build is a different sandbox, and these steps do not cover it.
-
-## Other distros
-
-Only Arch Linux was tested, in October 2026. The Lutris steps after the packages are installed should be the same. Those steps were not run anywhere but Arch.
-
-| Page | Package manager | Status |
-| --- | --- | --- |
-| [Arch Linux](docs/arch.md) | `pacman` | Tested, October 2026 |
-| [CachyOS](docs/cachyos.md) | `pacman` | Not tested. Same commands as Arch. |
-| [EndeavourOS](docs/endeavouros.md) | `pacman` | Not tested. Same commands as Arch. |
-| [Manjaro](docs/manjaro.md) | `pacman` | Not tested. Same commands as Arch. |
-| [Debian](docs/debian.md) | `apt` | Not tested. No install command listed. |
-| [Ubuntu](docs/ubuntu.md) | `apt` | Not tested. No install command listed. |
-| [Linux Mint](docs/linux-mint.md) | `apt` | Not tested. No install command listed. |
-| [Pop!_OS](docs/pop-os.md) | `apt` | Not tested. No install command listed. |
-| [Fedora](docs/fedora.md) | `dnf` | Not tested. No install command listed. |
-| [SteamOS](docs/steamos.md) | immutable | Not covered. |
-| [Bazzite](docs/bazzite.md) | immutable | Not covered. |
 
 ## Install DXVK first
 

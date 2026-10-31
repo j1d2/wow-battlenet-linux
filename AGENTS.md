@@ -6,7 +6,7 @@ This repository is a public install guide. It is not a dump of one person's mach
 
 - Edit [README.md](README.md) for install steps. Put contribution policy in [CONTRIBUTING.md](CONTRIBUTING.md), not in the guide.
 - Date any claim about Blizzard's launcher, especially whether WoW Forever can be installed. The 30 October 2026 note says Blizzard had that install disabled on purpose.
-- Say which distro a package command is for. Arch commands use `pacman`. Do not present them as universal. Per-distro pages live in `docs/`. Arch-based pages may repeat the tested `pacman` lines and must say they were not tested. Do not add `apt` or `dnf` install commands until someone has run them.
+- Say which distro a package command is for. Arch commands use `pacman`. Do not present them as universal. Per-distro pages live in `docs/`. Arch-based pages may repeat the tested `pacman` lines and must say they were not tested. `apt` and `dnf` pages may include commands looked up in that distro's package index. Those commands must say they were looked up and not run. Leave out a package the index does not list (`umu-launcher` is not in the Debian, Ubuntu, or Fedora indexes). Do not fill in an NVIDIA driver branch that was not looked up for one GPU.
 - Keep the WoW version table accurate: Classic Era is `_classic_era_`, the 2026 WoW Classic (Mists of Pandaria) client is `_classic_`, Forever's product code is `WoWF`.
 - Use conventional commits (`docs:`, `fix:`, `chore:`).
 
