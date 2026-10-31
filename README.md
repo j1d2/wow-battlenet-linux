@@ -111,3 +111,15 @@ Put that in `~/.local/bin/lutris` and mark it executable, if `~/.local/bin` come
 ## Audio
 
 The game plays through the desktop's default output device. If the sound is distorted or on the wrong device, change the default in your sound settings and start the game again.
+
+## Contributing
+
+Corrections and notes for other distros go through a pull request. Read [CONTRIBUTING.md](CONTRIBUTING.md) first. People who land a change are listed by GitHub handle in [CONTRIBUTORS.md](CONTRIBUTORS.md).
+
+Issues use the templates in `.github/ISSUE_TEMPLATE`. Do not paste account names, emails, or full logs.
+
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) covers issues and pull requests. [SECURITY.md](SECURITY.md) is for a personal detail that should not be public.
+
+## License
+
+[Apache License 2.0](LICENSE). A pull request is a contribution under that license.

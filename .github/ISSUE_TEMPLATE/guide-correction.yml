@@ -1,0 +1,41 @@
+name: Guide correction
+description: A fact in the guide is wrong, outdated, or missing a distro
+title: "docs: "
+labels: ["guide"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for a wrong step, an outdated WoW Forever note, or package names for another distro. Do not include personal details.
+  - type: textarea
+    id: where
+    attributes:
+      label: Where in the guide
+      placeholder: WoW Forever, paragraph 1
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What it should say
+      description: Include the date you checked it if the claim is about Blizzard.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of change
+      options:
+        - Correction
+        - WoW Forever status
+        - Another distro's packages
+        - Something else
+    validations:
+      required: true
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Before you submit
+      options:
+        - label: I removed account names, emails, IP addresses, and full logs.
+          required: true

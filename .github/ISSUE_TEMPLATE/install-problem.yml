@@ -1,0 +1,51 @@
+name: Install problem
+description: A step in the guide failed when you tried it
+title: "install: "
+labels: ["install"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Leave out email addresses, Battle.net or WoW account names, character names, IP addresses, and full logs. Quote the error line only.
+  - type: textarea
+    id: step
+    attributes:
+      label: Which step
+      description: Heading or command from the README.
+      placeholder: Install DXVK first
+    validations:
+      required: true
+  - type: textarea
+    id: saw
+    attributes:
+      label: What happened
+      description: The error line and what you expected.
+    validations:
+      required: true
+  - type: dropdown
+    id: distro
+    attributes:
+      label: Distro
+      options:
+        - Arch Linux
+        - Fedora
+        - Debian or Ubuntu
+        - Other Linux
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Lutris and GPU driver
+      description: Versions only. No hardware serials.
+      placeholder: Lutris 0.5.22, NVIDIA 570
+    validations:
+      required: true
+  - type: checkboxes
+    id: redacted
+    attributes:
+      label: Before you submit
+      options:
+        - label: I removed account names, emails, IP addresses, and full logs.
+          required: true
