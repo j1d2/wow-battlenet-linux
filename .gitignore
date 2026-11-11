@@ -1,3 +1,13 @@
 .DS_Store
 *~
 *.swp
+.check-tmp/
+
+# Your own names for the privacy scan; never committed.
+security/privacy-denylist.local
+
+# AI agent configs stay local: each contributor keeps their own.
+# AGENTS.md is the shared, committed rule set.
+.claude/
+CLAUDE.md
+CLAUDE.local.md
