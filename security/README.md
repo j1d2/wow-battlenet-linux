@@ -24,7 +24,7 @@ The scans print only the file, line and rule, never the matched text, so CI logs
 
 Set on GitHub, not in files, so they are written down here.
 
-- **Ruleset "protect-main"** (no one can bypass it, the owner included): changes land only through a pull request, review threads must be resolved, and `main` can't be force-pushed or deleted.
+- **Ruleset "protect-main"** (no one can bypass it, the owner included): changes land only through a pull request, CI's `check` must pass on a branch that is up to date with `main`, review threads must be resolved, and `main` can't be force-pushed or deleted.
 - **Actions:** only GitHub's own actions may run, pinned to a full commit SHA. Workflows get a read-only token and can't approve pull requests. Outside contributors' workflow runs wait for the maintainer's approval.
 - **Secret scanning and push protection** are on. **Private vulnerability reporting** is on.
 - **Dependabot** alerts are on, and `dependabot.yml` proposes updates to the pinned actions after a 14-day cooldown.
