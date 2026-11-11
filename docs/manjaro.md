@@ -2,7 +2,7 @@
 
 Not tested. October 2026 testing was Arch Linux only.
 
-Manjaro uses the same `pacman` commands as Arch. The 32-bit NVIDIA packages need the multilib repository.
+Manjaro uses the same `pacman` commands as Arch. `umu-launcher` and the 32-bit NVIDIA packages need the multilib repository.
 
 ```bash
 sudo pacman -S lutris wine umu-launcher python-protobuf

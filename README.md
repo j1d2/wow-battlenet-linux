@@ -29,13 +29,13 @@
 
 Install the Battle.net launcher with [Lutris](https://lutris.net), then install a World of Warcraft version from inside it.
 
-Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. The copy-paste block below is that test. Every other distro page is marked not tested.
+Tested in October 2026 on Arch Linux, a Wayland session, and an NVIDIA GPU, with Lutris 0.5.22 and a Proton runner Lutris downloaded. WoW Forever was installed and played on the same setup in November 2026. The copy-paste block below is that test. Every other distro page is marked not tested.
 
 Blizzard does not support Linux for these games. This is an unofficial player guide. It is not affiliated with, endorsed by, or sponsored by Blizzard Entertainment or Microsoft.
 
 ## TL;DR
 
-Arch Linux. Proprietary NVIDIA driver. Tested October 2026.
+Arch Linux. Proprietary NVIDIA driver. Tested October 2026. Enable the **multilib** repository first: `umu-launcher` and the 32-bit packages are there.
 
 ```bash
 sudo pacman -S lutris wine umu-launcher python-protobuf
@@ -45,11 +45,11 @@ lutris lutris:install/battlenet-standard
 
 Then in Lutris: **Preferences**, **Updates**, install **DXVK**. Close the first Battle.net login window without signing in, start Battle.net from Lutris again, and sign in on that second launch.
 
-The same `pacman` lines are on the [Arch](docs/arch.md), [CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) pages. Only this block was run. Looked-up `apt` and `dnf` commands are in [Distros](#distros).
+The same `pacman` lines are on the [Arch](docs/arch.md), [CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) pages. Only this block was run. Looked-up `apt` and `dnf` commands are on the pages listed in [Distros](#distros).
 
 ## Distros
 
-Only Arch Linux was tested, in October 2026. The `apt` and `dnf` commands in this section were looked up in each distro's package index on 31 October 2026. They were not run.
+Only Arch Linux was tested, in October 2026. The `apt` and `dnf` commands on those pages were looked up in each distro's package index on 31 October 2026. They were not run.
 
 | Page | Package manager | Status |
 | --- | --- | --- |
@@ -65,76 +65,11 @@ Only Arch Linux was tested, in October 2026. The `apt` and `dnf` commands in thi
 | [SteamOS](docs/steamos.md) | immutable | Not covered. |
 | [Bazzite](docs/bazzite.md) | immutable | Not covered. |
 
-### Arch-based
-
-[CachyOS](docs/cachyos.md), [EndeavourOS](docs/endeavouros.md), and [Manjaro](docs/manjaro.md) use the [TL;DR](#tldr) `pacman` lines. Those three pages were not tested.
-
-### Debian
-
-`lutris` 0.5.19-2 is in the **contrib** component on Debian 13. The tested install used Lutris 0.5.22. `wine` is in main. The protobuf package is `python3-protobuf`. `umu-launcher` is not in the Debian package tracker, so this command does not include it.
-
-Enable contrib, then:
-
-```bash
-sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install lutris wine python3-protobuf
-lutris lutris:install/battlenet-standard
-```
-
-Proprietary NVIDIA is in **non-free**. The looked-up 32-bit library package on Debian 13 is `nvidia-driver-libs:i386` (550.163.01). Not run:
-
-```bash
-sudo apt install nvidia-driver-libs:i386
-```
-
-Details and the DXVK step: [docs/debian.md](docs/debian.md).
-
-### Ubuntu, Linux Mint, and Pop!_OS
-
-`lutris` is in **multiverse**: 0.5.14 on Ubuntu 24.04, 0.5.22 on Ubuntu 26.04. `wine` is in **universe**. The protobuf package is `python3-protobuf`. A search of every Ubuntu suite for `umu-launcher` returned no package, so this command does not include it.
-
-Linux Mint and Pop!_OS are Ubuntu-based. These names were looked up on Ubuntu's package pages.
-
-Enable multiverse and universe, then:
-
-```bash
-sudo dpkg --add-architecture i386
-sudo apt update
-sudo apt install lutris wine python3-protobuf
-lutris lutris:install/battlenet-standard
-```
-
-The Ubuntu 32-bit NVIDIA library is `libnvidia-gl-<branch>:i386` in **restricted**. Ubuntu 26.04 publishes several branches (580, 590, 595, 610 were on the package pages). Match the branch already installed. No branch is filled in here. Not run.
-
-Pop!_OS documents `sudo apt install system76-driver-nvidia` for its proprietary driver. That page did not name a 32-bit package.
-
-Pages: [Ubuntu](docs/ubuntu.md), [Linux Mint](docs/linux-mint.md), [Pop!_OS](docs/pop-os.md).
-
-### Fedora
-
-Fedora 43, 44, and 45 list `lutris` 0.5.22. `wine` is in the Fedora repos. `python3-protobuf` is a dependency of the Fedora 45 lutris package. Fedora's package index has no `umu-launcher` page, so this command does not include it.
-
-```bash
-sudo dnf install lutris wine python3-protobuf
-lutris lutris:install/battlenet-standard
-```
-
-Proprietary NVIDIA is not in Fedora's own repos. [RPM Fusion's NVIDIA howto](https://rpmfusion.org/Howto/NVIDIA) says current GeForce cards use `akmod-nvidia` from the nonfree repository, and that current Fedora pulls `xorg-x11-drv-nvidia-libs.i686` with it. Enable that third-party repository first. The repository-enable command is on RPM Fusion's configuration page and is not copied here. Not run:
-
-```bash
-sudo dnf install akmod-nvidia
-```
-
-Details: [docs/fedora.md](docs/fedora.md).
-
-### Not covered
-
-[SteamOS](docs/steamos.md) and [Bazzite](docs/bazzite.md) are immutable images. No install command is listed.
+Each page has that distro's install command and its NVIDIA notes. The `apt` and `dnf` pages say which packages their index does not have (`umu-launcher` is not in the Debian, Ubuntu, or Fedora indexes). SteamOS and Bazzite are immutable images, so no install command is listed.
 
 ## What you need
 
-Install these from the official Arch repositories:
+Install these from the official Arch repositories. `umu-launcher` is in **multilib**, so enable that repository first:
 
 ```bash
 sudo pacman -S lutris wine umu-launcher python-protobuf
@@ -176,10 +111,7 @@ Use a Linux filesystem (btrfs, ext4, xfs). A prefix on NTFS is a known way to br
 
 On the first Battle.net window, close the login screen without signing in. Lutris is still finishing the prefix. Start Battle.net from Lutris again, and sign in on that second launch.
 
-The Lutris log stays open the whole time Battle.net is running. It closes when you quit Battle.net. These lines are noise when the launcher is actually open:
-
-- `Proton: Error: unable to use parent for game drive`
-- `Xalia` / `TaskCanceledException`
+The Lutris log stays open while Battle.net runs. Some errors in it are harmless: see [Troubleshooting](docs/troubleshooting.md#lutris-log-noise).
 
 ## Install a WoW version
 
@@ -189,54 +121,31 @@ Battle.net shows one World of Warcraft entry. The **Game Version** menu on that 
 | --- | --- | --- |
 | Classic Era | `_classic_era_` | `wow_classic_era` |
 | WoW Classic (Mists of Pandaria in 2026) | `_classic_` | `wow_classic` |
-| World of Warcraft: Forever | `_forever_` once Blizzard enables the install | `WoWF` |
+| World of Warcraft: Forever | `_forever_` | `WoWF` |
 
 Forever is not its own tile in the sidebar.
 
 ## WoW Forever
 
-Launch is Wednesday 4 November 2026 at 3:00 p.m. Pacific, which is 23:00 UTC. Access is included with a WoW subscription or Game Time.
+WoW Forever is live. Open World of Warcraft in Battle.net, open **Game Version**, choose **World of Warcraft: Forever**, then **Install**. It goes in `_forever_`, next to the other versions. Installed and played this way on the tested Arch setup in November 2026.
 
-As of 30 October 2026, Blizzard had the Forever install disabled on purpose. The Install button stays grey. That is not a Linux bug, and it is not caused by which WoW account is selected in the launcher.
+Access is included with a WoW subscription or Game Time.
 
-When Blizzard enables it: open World of Warcraft, open **Game Version**, choose **World of Warcraft: Forever**, then **Install**.
+## Addons
 
-Windows players pass this to a grey button. It asks Battle.net to start the `WoWF` product. It does not override a disablement Blizzard still has in place:
+Addons go in the game's `Interface/AddOns` folder. Inside the folder you picked for Battle.net (for example `~/Games/battlenet`), that is under the Wine `C:` drive:
 
 ```text
-"C:\Program Files (x86)\Battle.net\Battle.net.exe" --game=WoWF --install
+Program Files (x86)/World of Warcraft/_forever_/Interface/AddOns
 ```
 
-On Linux, pass the same arguments to `Battle.net.exe` inside the prefix, with the same Wine runner Lutris is using.
+Create `Interface` and `AddOns` if they are not there yet. Classic Era and WoW Classic use their own folders (`_classic_era_`, `_classic_`) in the same place.
 
-## Wrong Python on PATH
+For free Forever addons that follow Blizzard's addon policy, see [wow-addons](https://github.com/j1d2/wow-addons), for example HouseLedger, an auction house price history.
 
-The `lutris` command is a script with `#!/usr/bin/env python3`. If a different `python3` is earlier on `PATH`, Lutris fails in one of two ways:
+## Troubleshooting
 
-- `No module named 'lutris'`
-- during prefix creation, `AttributeError: module '_thread' has no attribute 'start_joinable_thread'`
-
-The second one happens because Lutris hands its own `PYTHONPATH` to `lutris-wrapper`, and the other interpreter cannot load that standard library.
-
-Start Lutris with the distro interpreter:
-
-```bash
-/usr/bin/python3 /usr/bin/lutris
-```
-
-The desktop entry runs the name `lutris` and inherits your session `PATH`. A wrapper earlier on `PATH` keeps the menu entry working:
-
-```bash
-#!/usr/bin/bash
-export PATH="/usr/bin:${PATH}"
-exec /usr/bin/python3 /usr/bin/lutris "$@"
-```
-
-Put that in `~/.local/bin/lutris` and mark it executable, if `~/.local/bin` comes before `/usr/bin`.
-
-## Audio
-
-The game plays through the desktop's default output device. If the sound is distorted or on the wrong device, change the default in your sound settings and start the game again.
+[docs/troubleshooting.md](docs/troubleshooting.md) covers harmless lines in the Lutris log, Lutris failing because of a different `python3` on `PATH`, and game audio on the wrong device.
 
 ## Contributing
 
