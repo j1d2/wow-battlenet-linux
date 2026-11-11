@@ -21,10 +21,21 @@ Do not include any of the following, in the guide, an issue, a pull request, or 
 
 GitHub publishes issues and pull requests. A private detail pasted once is hard to take back.
 
+## Setup
+
+You need `bash`, `git` and `shellcheck` from your system's package manager. Nothing else.
+
+```bash
+scripts/install_hooks.sh   # once per clone: pre-commit, commit-msg and pre-push hooks
+scripts/check.sh           # the full gate: what the hooks and CI run
+```
+
+The gate checks file hygiene, scans for personal details and secrets, and checks that every link between the guide's pages works. Put your own names in `security/privacy-denylist.local` (git ignores it) so the scan blocks them too. See [security/README.md](security/README.md).
+
 ## How
 
 1. Open an issue for anything that is not a small typo, or go straight to a pull request for a typo.
-2. Branch from `main`. Do not push to `main`. Branch protection rejects that.
+2. Branch from `main`. Do not push to `main`. Branch protection rejects that. CI runs `scripts/check.sh` on every pull request, and it must pass.
 3. Use a [conventional commit](https://www.conventionalcommits.org/) message: `docs:`, `fix:`, or `chore:`.
 4. Fill in the pull request template. Add your handle to [CONTRIBUTORS.md](CONTRIBUTORS.md) if this is your first merged change.
 5. A maintainer merges. One review is not required, so a single maintainer can land a change after reading it.
